@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HoTroBenhNhan.Data.Benhvien>
+
+@{
+    ViewBag.Title = "danhSachBenhVien";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container w-90 mt-5" style="margin-left:300px">
+        <button type="button" class="mb-5 btn btn-primary">
+            @Html.ActionLink("Tạo mới New", "Create")
+        </button>
+        <table class="table w-100 table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Tên bệnh viện</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Địa chỉ</th>
+                    <th scope="col">SĐT</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@Html.DisplayFor(modelItem => item.tenbenhvien)</th>
+                        <td><img src=" @Html.DisplayFor(modelItem => item.Anh)" /></td>
+                        <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Sđt)</td>
+                        <td>
+                            <button type="button" class="btn btn-warning pl-3 pr-3">
+                                @Html.ActionLink("Xoá", "Delete", new { id = item.mabenhvien })
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger pl-3 pr-3">
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.mabenhvien })
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+<style>
+    a{
+        color:black;
+    }
+</style>

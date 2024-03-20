@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DulieuhientangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="baiViet">
+    <Key>
+      <PropertyRef Name="idbaiViet" />
+    </Key>
+    <Property Name="idbaiViet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idLoai" Type="Int32" />
+    <Property Name="TenBaiViet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ngayTao" Type="DateTime" Precision="3" />
+    <Property Name="hinhAnhBaiViet" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="tieuDe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="noiDungTieuDe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="anhMinhHoa" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="tieuDe1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="noiDungTieuDe1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="anhMinhHoa1" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="tieuDe2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="noiDungTieuDe2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="anhMinhHoa2" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="tieuDe3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="noiDungTieuDe3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="anhMinhHoa3" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="tieuDe4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="noiDungTieuDe4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="anhMinhHoa4" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="tieuDe5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="noiDungTieuDe5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="anhMinhHoa5" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="moTaNgan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LoaiBlog" Relationship="DulieuhientangModel.FK__baiViet__idLoai__4865BE2A" FromRole="baiViet" ToRole="LoaiBlog" />
+  </EntityType>
+  <EntityType Name="Benhvien">
+    <Key>
+      <PropertyRef Name="mabenhvien" />
+    </Key>
+    <Property Name="mabenhvien" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenbenhvien" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Anh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sđt" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Thongtinhientang" Relationship="DulieuhientangModel.FK__Thongtinhi__maBV__0E04126B" FromRole="Benhvien" ToRole="Thongtinhientang" />
+  </EntityType>
+  <EntityType Name="Khieunai">
+    <Key>
+      <PropertyRef Name="MaKN" />
+    </Key>
+    <Property Name="MaKN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LinkBaiviet" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="NoidungKN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Matk" Type="Int32" />
+    <NavigationProperty Name="Taikhoan" Relationship="DulieuhientangModel.FK__Khieunai__Matk__589C25F3" FromRole="Khieunai" ToRole="Taikhoan" />
+  </EntityType>
+  <EntityType Name="LoaiBlog">
+    <Key>
+      <PropertyRef Name="idLoai" />
+    </Key>
+    <Property Name="idLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="baiViet" Relationship="DulieuhientangModel.FK__baiViet__idLoai__4865BE2A" FromRole="LoaiBlog" ToRole="baiViet" />
+  </EntityType>
+  <EntityType Name="QuanHuyen">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenQuanHuyen" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="tinhThanhPhoId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Thongtinbenhnhan" Relationship="DulieuhientangModel.FK__thongtinb__quanh__31B762FC" FromRole="QuanHuyen" ToRole="Thongtinbenhnhan" />
+    <NavigationProperty Name="TinhThanhPho" Relationship="DulieuhientangModel.FK_QuanHuyen_TinhThanhPho" FromRole="QuanHuyen" ToRole="TinhThanhPho" />
+    <NavigationProperty Name="XaPhuong" Relationship="DulieuhientangModel.FK_XaPhuong_QuanHuyen" FromRole="QuanHuyen" ToRole="XaPhuong" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Taikhoan">
+    <Key>
+      <PropertyRef Name="Matk" />
+    </Key>
+    <Property Name="Matk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Matkhau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Anhdaidien" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Quyenadmin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Cccdtruoc" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Cccdsau" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Sdt" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+    <Property Name="Quyendangbai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Khieunai" Relationship="DulieuhientangModel.FK__Khieunai__Matk__589C25F3" FromRole="Taikhoan" ToRole="Khieunai" />
+    <NavigationProperty Name="Thongtinbenhnhan" Relationship="DulieuhientangModel.FK__thongtinbe__matk__2FCF1A8A" FromRole="Taikhoan" ToRole="Thongtinbenhnhan" />
+    <NavigationProperty Name="Thongtinhientang" Relationship="DulieuhientangModel.FK__Thongtinhi__Matk__0EF836A4" FromRole="Taikhoan" ToRole="Thongtinhientang" />
+  </EntityType>
+  <EntityType Name="Thongtinbenhnhan">
+    <Key>
+      <PropertyRef Name="Mabaiviet" />
+    </Key>
+    <Property Name="Mabaiviet" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HotenBN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Hinhanh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Noidungdaydu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sdt" Type="Int32" />
+    <Property Name="Linkfb" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Linkzalo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Diachicuthe" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Mabenh" Type="Int32" />
+    <Property Name="Matk" Type="Int32" />
+    <Property Name="Tinhthanhpho" Type="Int64" />
+    <Property Name="Quanhuyen" Type="Int64" />
+    <Property Name="XaPhuong" Type="Int64" />
+    <Property Name="Ngaytao" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="QuanHuyen1" Relationship="DulieuhientangModel.FK__thongtinb__quanh__31B762FC" FromRole="Thongtinbenhnhan" ToRole="QuanHuyen" />
+    <NavigationProperty Name="Taikhoan" Relationship="DulieuhientangModel.FK__thongtinbe__matk__2FCF1A8A" FromRole="Thongtinbenhnhan" ToRole="Taikhoan" />
+    <NavigationProperty Name="Trinhtangbenh" Relationship="DulieuhientangModel.FK__thongtinb__maben__2EDAF651" FromRole="Thongtinbenhnhan" ToRole="Trinhtangbenh" />
+    <NavigationProperty Name="TinhThanhPho1" Relationship="DulieuhientangModel.FK__thongtinb__tinht__30C33EC3" FromRole="Thongtinbenhnhan" ToRole="TinhThanhPho" />
+    <NavigationProperty Name="XaPhuong1" Relationship="DulieuhientangModel.FK__thongtinb__XaPhu__32AB8735" FromRole="Thongtinbenhnhan" ToRole="XaPhuong" />
+  </EntityType>
+  <EntityType Name="Thongtinhientang">
+    <Key>
+      <PropertyRef Name="MaHT" />
+    </Key>
+    <Property Name="MaHT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="maBV" Type="Int64" />
+    <Property Name="Hotennguoihien" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Noidunghientang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ngaytaobaiviet" Type="DateTime" Precision="3" />
+    <Property Name="Matk" Type="Int32" />
+    <Property Name="Mabenh" Type="Int32" />
+    <NavigationProperty Name="Benhvien" Relationship="DulieuhientangModel.FK__Thongtinhi__maBV__0E04126B" FromRole="Thongtinhientang" ToRole="Benhvien" />
+    <NavigationProperty Name="Taikhoan" Relationship="DulieuhientangModel.FK__Thongtinhi__Matk__0EF836A4" FromRole="Thongtinhientang" ToRole="Taikhoan" />
+    <NavigationProperty Name="Trinhtangbenh" Relationship="DulieuhientangModel.FK__Thongtinh__Maben__0FEC5ADD" FromRole="Thongtinhientang" ToRole="Trinhtangbenh" />
+  </EntityType>
+  <EntityType Name="TinhThanhPho">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenTinhThanhPho" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="QuanHuyen" Relationship="DulieuhientangModel.FK_QuanHuyen_TinhThanhPho" FromRole="TinhThanhPho" ToRole="QuanHuyen" />
+    <NavigationProperty Name="Thongtinbenhnhan" Relationship="DulieuhientangModel.FK__thongtinb__tinht__30C33EC3" FromRole="TinhThanhPho" ToRole="Thongtinbenhnhan" />
+  </EntityType>
+  <EntityType Name="Trinhtangbenh">
+    <Key>
+      <PropertyRef Name="Mabenh" />
+    </Key>
+    <Property Name="Mabenh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tenbenh" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Thongtinbenhnhan" Relationship="DulieuhientangModel.FK__thongtinb__maben__2EDAF651" FromRole="Trinhtangbenh" ToRole="Thongtinbenhnhan" />
+    <NavigationProperty Name="Thongtinhientang" Relationship="DulieuhientangModel.FK__Thongtinh__Maben__0FEC5ADD" FromRole="Trinhtangbenh" ToRole="Thongtinhientang" />
+  </EntityType>
+  <EntityType Name="XaPhuong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenXaPhuong" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="quanHuyenId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="QuanHuyen" Relationship="DulieuhientangModel.FK_XaPhuong_QuanHuyen" FromRole="XaPhuong" ToRole="QuanHuyen" />
+    <NavigationProperty Name="Thongtinbenhnhan" Relationship="DulieuhientangModel.FK__thongtinb__XaPhu__32AB8735" FromRole="XaPhuong" ToRole="Thongtinbenhnhan" />
+  </EntityType>
+  <Association Name="FK__baiViet__idLoai__4865BE2A">
+    <End Type="DulieuhientangModel.LoaiBlog" Role="LoaiBlog" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.baiViet" Role="baiViet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiBlog">
+        <PropertyRef Name="idLoai" />
+      </Principal>
+      <Dependent Role="baiViet">
+        <PropertyRef Name="idLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Khieunai__Matk__589C25F3">
+    <End Type="DulieuhientangModel.Taikhoan" Role="Taikhoan" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.Khieunai" Role="Khieunai" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Taikhoan">
+        <PropertyRef Name="Matk" />
+      </Principal>
+      <Dependent Role="Khieunai">
+        <PropertyRef Name="Matk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__thongtinb__maben__2EDAF651">
+    <End Type="DulieuhientangModel.Trinhtangbenh" Role="Trinhtangbenh" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.Thongtinbenhnhan" Role="Thongtinbenhnhan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trinhtangbenh">
+        <PropertyRef Name="Mabenh" />
+      </Principal>
+      <Dependent Role="Thongtinbenhnhan">
+        <PropertyRef Name="Mabenh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__thongtinb__quanh__31B762FC">
+    <End Type="DulieuhientangModel.QuanHuyen" Role="QuanHuyen" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.Thongtinbenhnhan" Role="Thongtinbenhnhan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuanHuyen">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Thongtinbenhnhan">
+        <PropertyRef Name="Quanhuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__thongtinb__tinht__30C33EC3">
+    <End Type="DulieuhientangModel.TinhThanhPho" Role="TinhThanhPho" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.Thongtinbenhnhan" Role="Thongtinbenhnhan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhThanhPho">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Thongtinbenhnhan">
+        <PropertyRef Name="Tinhthanhpho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__thongtinb__XaPhu__32AB8735">
+    <End Type="DulieuhientangModel.XaPhuong" Role="XaPhuong" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.Thongtinbenhnhan" Role="Thongtinbenhnhan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XaPhuong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Thongtinbenhnhan">
+        <PropertyRef Name="XaPhuong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__thongtinbe__matk__2FCF1A8A">
+    <End Type="DulieuhientangModel.Taikhoan" Role="Taikhoan" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.Thongtinbenhnhan" Role="Thongtinbenhnhan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Taikhoan">
+        <PropertyRef Name="Matk" />
+      </Principal>
+      <Dependent Role="Thongtinbenhnhan">
+        <PropertyRef Name="Matk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Thongtinh__Maben__0FEC5ADD">
+    <End Type="DulieuhientangModel.Trinhtangbenh" Role="Trinhtangbenh" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.Thongtinhientang" Role="Thongtinhientang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trinhtangbenh">
+        <PropertyRef Name="Mabenh" />
+      </Principal>
+      <Dependent Role="Thongtinhientang">
+        <PropertyRef Name="Mabenh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Thongtinhi__maBV__0E04126B">
+    <End Type="DulieuhientangModel.Benhvien" Role="Benhvien" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.Thongtinhientang" Role="Thongtinhientang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Benhvien">
+        <PropertyRef Name="mabenhvien" />
+      </Principal>
+      <Dependent Role="Thongtinhientang">
+        <PropertyRef Name="maBV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Thongtinhi__Matk__0EF836A4">
+    <End Type="DulieuhientangModel.Taikhoan" Role="Taikhoan" Multiplicity="0..1" />
+    <End Type="DulieuhientangModel.Thongtinhientang" Role="Thongtinhientang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Taikhoan">
+        <PropertyRef Name="Matk" />
+      </Principal>
+      <Dependent Role="Thongtinhientang">
+        <PropertyRef Name="Matk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuanHuyen_TinhThanhPho">
+    <End Type="DulieuhientangModel.TinhThanhPho" Role="TinhThanhPho" Multiplicity="1" />
+    <End Type="DulieuhientangModel.QuanHuyen" Role="QuanHuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhThanhPho">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="QuanHuyen">
+        <PropertyRef Name="tinhThanhPhoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XaPhuong_QuanHuyen">
+    <End Type="DulieuhientangModel.QuanHuyen" Role="QuanHuyen" Multiplicity="1" />
+    <End Type="DulieuhientangModel.XaPhuong" Role="XaPhuong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuanHuyen">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="XaPhuong">
+        <PropertyRef Name="quanHuyenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DulieuhientangEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DulieuhientangModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DulieuhientangModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="baiViet" EntityType="DulieuhientangModel.baiViet" />
+    <EntitySet Name="Benhvien" EntityType="DulieuhientangModel.Benhvien" />
+    <EntitySet Name="Khieunai" EntityType="DulieuhientangModel.Khieunai" />
+    <EntitySet Name="LoaiBlog" EntityType="DulieuhientangModel.LoaiBlog" />
+    <EntitySet Name="QuanHuyen" EntityType="DulieuhientangModel.QuanHuyen" />
+    <EntitySet Name="sysdiagrams" EntityType="DulieuhientangModel.sysdiagrams" />
+    <EntitySet Name="Taikhoan" EntityType="DulieuhientangModel.Taikhoan" />
+    <EntitySet Name="Thongtinbenhnhan" EntityType="DulieuhientangModel.Thongtinbenhnhan" />
+    <EntitySet Name="Thongtinhientang" EntityType="DulieuhientangModel.Thongtinhientang" />
+    <EntitySet Name="TinhThanhPho" EntityType="DulieuhientangModel.TinhThanhPho" />
+    <EntitySet Name="Trinhtangbenh" EntityType="DulieuhientangModel.Trinhtangbenh" />
+    <EntitySet Name="XaPhuong" EntityType="DulieuhientangModel.XaPhuong" />
+    <AssociationSet Name="FK__baiViet__idLoai__4865BE2A" Association="DulieuhientangModel.FK__baiViet__idLoai__4865BE2A">
+      <End Role="LoaiBlog" EntitySet="LoaiBlog" />
+      <End Role="baiViet" EntitySet="baiViet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Khieunai__Matk__589C25F3" Association="DulieuhientangModel.FK__Khieunai__Matk__589C25F3">
+      <End Role="Taikhoan" EntitySet="Taikhoan" />
+      <End Role="Khieunai" EntitySet="Khieunai" />
+    </AssociationSet>
+    <AssociationSet Name="FK__thongtinb__maben__2EDAF651" Association="DulieuhientangModel.FK__thongtinb__maben__2EDAF651">
+      <End Role="Trinhtangbenh" EntitySet="Trinhtangbenh" />
+      <End Role="Thongtinbenhnhan" EntitySet="Thongtinbenhnhan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__thongtinb__quanh__31B762FC" Association="DulieuhientangModel.FK__thongtinb__quanh__31B762FC">
+      <End Role="QuanHuyen" EntitySet="QuanHuyen" />
+      <End Role="Thongtinbenhnhan" EntitySet="Thongtinbenhnhan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__thongtinb__tinht__30C33EC3" Association="DulieuhientangModel.FK__thongtinb__tinht__30C33EC3">
+      <End Role="TinhThanhPho" EntitySet="TinhThanhPho" />
+      <End Role="Thongtinbenhnhan" EntitySet="Thongtinbenhnhan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__thongtinb__XaPhu__32AB8735" Association="DulieuhientangModel.FK__thongtinb__XaPhu__32AB8735">
+      <End Role="XaPhuong" EntitySet="XaPhuong" />
+      <End Role="Thongtinbenhnhan" EntitySet="Thongtinbenhnhan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__thongtinbe__matk__2FCF1A8A" Association="DulieuhientangModel.FK__thongtinbe__matk__2FCF1A8A">
+      <End Role="Taikhoan" EntitySet="Taikhoan" />
+      <End Role="Thongtinbenhnhan" EntitySet="Thongtinbenhnhan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Thongtinh__Maben__0FEC5ADD" Association="DulieuhientangModel.FK__Thongtinh__Maben__0FEC5ADD">
+      <End Role="Trinhtangbenh" EntitySet="Trinhtangbenh" />
+      <End Role="Thongtinhientang" EntitySet="Thongtinhientang" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Thongtinhi__maBV__0E04126B" Association="DulieuhientangModel.FK__Thongtinhi__maBV__0E04126B">
+      <End Role="Benhvien" EntitySet="Benhvien" />
+      <End Role="Thongtinhientang" EntitySet="Thongtinhientang" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Thongtinhi__Matk__0EF836A4" Association="DulieuhientangModel.FK__Thongtinhi__Matk__0EF836A4">
+      <End Role="Taikhoan" EntitySet="Taikhoan" />
+      <End Role="Thongtinhientang" EntitySet="Thongtinhientang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuanHuyen_TinhThanhPho" Association="DulieuhientangModel.FK_QuanHuyen_TinhThanhPho">
+      <End Role="TinhThanhPho" EntitySet="TinhThanhPho" />
+      <End Role="QuanHuyen" EntitySet="QuanHuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XaPhuong_QuanHuyen" Association="DulieuhientangModel.FK_XaPhuong_QuanHuyen">
+      <End Role="QuanHuyen" EntitySet="QuanHuyen" />
+      <End Role="XaPhuong" EntitySet="XaPhuong" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

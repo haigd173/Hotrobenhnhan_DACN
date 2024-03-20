@@ -1,0 +1,99 @@
+﻿@model HoTroBenhNhan.Data.baiViet
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="~/Content/css/chiTietBaiViet.css" rel="stylesheet" />
+    <title>Document</title>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=637089d6074d6c00198224a2&product=inline-share-buttons&source=platform" async="async"></script>
+</head>
+
+<body>
+    <div id="wrap" class="container" style="margin-left:350px; margin-right:50px">
+        <div class="header w-90 m-auto">
+            <div class="name-blog text-center text-black">
+                <h1> @Html.DisplayFor(model => model.TenBaiViet)</h1>
+                <p class="float-right"> @Html.DisplayFor(model => model.ngayTao)</p>
+                <div class="clear"></div>
+                <h5 class="">
+                    @Html.DisplayFor(model => model.moTaNgan)
+                </h5>
+            </div>
+            <div class="img-blog w-100">
+                <img class="w-100" src="@Html.DisplayFor(model => model.hinhAnhBaiViet)" alt="">
+            </div>
+        </div>
+        <div class="container">
+            <div class="list-item">
+                <div class="item">
+                    <ul class="item-title" style="list-style:none">
+                        <li>
+                            @Html.DisplayFor(model => model.tieuDe)
+                            <p>
+                                @Html.DisplayFor(model => model.noiDungTieuDe)
+                            </p>
+                        </li>
+                        <li>
+                            @Html.DisplayFor(model => model.tieuDe1)
+                            <p>
+                                @Html.DisplayFor(model => model.noiDungTieuDe1)
+                            </p>
+                        </li>
+                        <li>
+                            @Html.DisplayFor(model => model.tieuDe2)
+                            <p>
+                                @Html.DisplayFor(model => model.noiDungTieuDe2)
+                            </p>
+                        </li>
+                        <li>
+                            @Html.DisplayFor(model => model.tieuDe3)
+                            <p>
+                                @Html.DisplayFor(model => model.noiDungTieuDe3)
+                            </p>
+                        </li>
+                        <li>
+                            @Html.DisplayFor(model => model.tieuDe4)
+                            <p>
+                                @Html.DisplayFor(model => model.noiDungTieuDe4)
+                            </p>
+                        </li>
+                        <li>
+                            @Html.DisplayFor(model => model.tieuDe5)
+                            <p>
+                                @Html.DisplayFor(model => model.noiDungTieuDe5)
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+
+</html>
+
+
+
+ 

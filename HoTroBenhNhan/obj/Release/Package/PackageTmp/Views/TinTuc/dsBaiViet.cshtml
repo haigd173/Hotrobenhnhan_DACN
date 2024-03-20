@@ -1,0 +1,125 @@
+﻿
+@model PagedList.IPagedList<HoTroBenhNhan.Data.baiViet>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "dsBaiViet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link href="~/Content/css/phantrang.css" rel="stylesheet" />
+    <link href="~/Content/css/baiviet.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-3">
+        @using (Html.BeginForm("dsBaiViet", "dsBaiViet", FormMethod.Get))
+        {
+            <p class="text-center text-black">
+                @Html.TextBox("Search", ViewBag.CurrentFilter as string, new { @class = "inputSearch" })
+                <input class="au-btn--submit" type="submit" value="Tìm kiếm" />
+            </p>
+        }
+    </div>
+    <div class="CSSgal" style="width:100%; margin:auto; height: 60%">
+        <!-- Don't wrap targets in parent -->
+        <s id="s1"></s>
+        <s id="s2"></s>
+        <s id="s3"></s>
+        <s id="s4"></s>
+
+        <div class="slider">
+            @foreach (var item in Model.Take(4))
+            {
+                <a href="@Url.Action("BaiViet","TinTuc",new {id = item.idbaiViet })" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div style="background:#5b8;">
+                        <img class="w-100" src="@item.hinhAnhBaiViet" />
+                    </div>
+                </a>
+            }
+        </div>
+
+        <div class="prevNext">
+            <div><a href="#s4"></a><a href="#s2"></a></div>
+            <div><a href="#s1"></a><a href="#s3"></a></div>
+            <div><a href="#s2"></a><a href="#s4"></a></div>
+            <div><a href="#s3"></a><a href="#s1"></a></div>
+        </div>
+
+        <div class="bullets">
+            <a href="#s1">1</a>
+            <a href="#s2">2</a>
+            <a href="#s3">3</a>
+            <a href="#s4">4</a>
+        </div>
+
+    </div>
+
+
+
+    <div class="container p-3">
+        <div class="col-md-12">
+            <section class="panel">
+                    <div class="panel-body">
+                        <div class="pull-right" style="color:black">
+                            <br />
+                            <div class="text-center mb-4 page">
+                                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+                            </div>
+                            <div class="list-page">
+                                @Html.PagedListPager(Model, page => Url.Action("dsBaiViet", new { page }))
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            <div id="baiviet" class="row justify-content-center mt-4 flex-wrap mb-5 group-list">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-6 list-item mb-5">
+                        <div class="container-item">
+                            <div class="col-xs-4 col-sm-4 col-md-12 col-lg-12 item">
+                                <a href="@Url.Action("BaiViet","TinTuc",new {id = item.idbaiViet })">
+                                    <div class="item-title mb-4">
+                                        <div class="title fs-2 text-justify">@item.TenBaiViet</div>
+                                        <small>@item.ngayTao</small>
+                                    </div>
+                                    <div class="item-nav-title fs-5 w-100">
+                                        <div class="img-title w-100">
+                                            <img class="w-100" src="@item.hinhAnhBaiViet" alt="">
+                                        </div>
+                                        <div class="nav-title">
+                                            @item.moTaNgan
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<style>
+    #Search{
+        width:70%;
+        height:40px;
+        border-radius:5px;
+    }
+    .au-btn--submit{
+        padding:8px
+    }
+</style>

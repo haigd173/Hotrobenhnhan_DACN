@@ -1,0 +1,87 @@
+﻿@model IEnumerable<HoTroBenhNhan.Data.Trinhtangbenh>
+
+@{
+    ViewBag.Title = "Danh sách các loại bệnh";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+<h2>Danh sách bệnh</h2>
+
+<button style="margin-left:1700px; " class="au-btn au-btn-icon au-btn--blue">
+    <i style="color:black; " class="zmdi zmdi-plus">
+        @Html.ActionLink("Thêm bệnh mới ", "Create")
+    </i>
+</button>
+<table class="table">
+    <tr>
+        <th>Số thứ tự </th>
+        <th>
+            <a>Tên Bệnh </a>
+        </th>
+
+        <th><a>Tác vụ </a></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mabenh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tenbenh)
+        </td>
+        <td>
+            <div class="account-wrap">
+                <div class="account-item clearfix js-item-menu">
+
+                    <div class="content">
+                        <a class="js-acc-btn" href="#">Thao tác </a>
+                    </div>
+                    <div class="account-dropdown js-dropdown">
+                        
+                            <div class="account-dropdown__item">
+                                <a href="#">
+                                    @Html.ActionLink("Chỉnh Sữa ", "Edit", new { id = item.Mabenh }) 
+                                </a>
+                            </div>
+                            <div class="account-dropdown__item">
+                                <a href="#">
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item.Mabenh })
+                                </a>
+                            </div>
+                            
+                        
+                    </div>
+                </div>
+            </div>        
+        </td>
+    </tr>
+}
+
+</table>
+<style>
+    .clear {
+        clear: both;
+    }
+
+    
+    .table {
+        float: right;
+        width: 82%;
+        background-color: var(--white);
+        margin-left: 10%;
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        color: crimson;
+    }
+
+    a {
+        color: var(--dark);
+    }
+    .account-dropdown {
+        margin-right:400px
+    }
+</style>

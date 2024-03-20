@@ -1,0 +1,55 @@
+﻿@model IEnumerable<HoTroBenhNhan.Data.baiViet>
+
+@{
+    ViewBag.Title = "danhSachBaiViet";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table class="table container w-85" style="margin-left:300px">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Tên loại</th>
+                <th scope="col">Tên bài viết</th>
+                <th scope="col">Ngày tạo</th>
+                <th scope="col">Hình ảnh</th>
+                <th scope="col">Mô tả ngắn</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var item in Model)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoaiBlog.TenLoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenBaiViet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngayTao)
+                </td>
+                <td>
+                    <img src="@item.hinhAnhBaiViet"/>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.moTaNgan)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.idbaiViet }) |
+                    @Html.ActionLink("Xoá", "Delete", new { id = item.idbaiViet })
+                </td>
+            </tr>
+            }
+            </tbody>
+    </table>
+
+</body>
+</html>

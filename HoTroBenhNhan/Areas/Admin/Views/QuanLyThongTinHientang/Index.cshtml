@@ -1,0 +1,64 @@
+﻿@model IEnumerable<HoTroBenhNhan.Data.Thongtinhientang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table class="table container w-85" style="margin-left:300px">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Họ tên</th>
+                <th scope="col">Nội dung</th>
+                <th scope="col">Ngày tạo</th>
+                <th scope="col">Tên bệnh viện</th>
+                <th scope="col">Tình trạng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hotennguoihien)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Noidunghientang)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Ngaytaobaiviet)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Benhvien.tenbenhvien)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Trinhtangbenh.Tenbenh)
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-danger pl-3 pr-3">
+                            @Html.ActionLink("Xoá", "Delete", new { id = item.MaHT })
+                        </button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </body>
+</html>
+
+<style>
+    a {
+        color: black;
+    }
+</style>
+
+

@@ -1,0 +1,43 @@
+﻿@model HoTroBenhNhan.Data.Khieunai
+
+@{
+    ViewBag.Title = "xoaKhieuNai";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container w-90"  style="margin:50px 300px">
+        <table class="table container-fluid">
+            <thead>
+                <tr>
+                    <th scope="col">Link bài viết</th>
+                    <th scope="col">Nội dung khiếu nại</th>
+                    <th scope="col">Tên đăng nhập</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> @Html.DisplayFor(model => model.LinkBaiviet)</td>
+                    <td> @Html.DisplayFor(model => model.NoidungKN)</td>
+                    <td>    @Html.DisplayFor(model => model.Taikhoan.TenDN)</td>
+                </tr>
+            </tbody>
+        </table>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

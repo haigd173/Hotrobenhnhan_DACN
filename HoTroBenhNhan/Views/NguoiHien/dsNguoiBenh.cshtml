@@ -1,0 +1,92 @@
+﻿@model PagedList.IPagedList<HoTroBenhNhan.Data.Thongtinhientang>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "dsNguoiBenh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="~/Content/css/PhanTrang.css" rel="stylesheet" />
+    <link href="~/Content/css/baiviet.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container bootdey p-3">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="pull-right" style="color:black">
+                        <!-- Thêm mã phân trang -->
+                        <br />
+                        <div class="text-center mb-4 page">
+                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+                        </div>
+                        <div class="list-page">
+                            @Html.PagedListPager(Model, page => Url.Action("dsNguoiBenh", new { page }))
+                        </div>
+                        <!-- Kết thúc -->
+                    </div>
+                </div>
+            </section>
+
+            <!--Hien thi danh sach san pham-->
+            <div class="row justify-content-sm-between mt-4 flex-wrap mb-5 group-list">
+                @foreach (var item in Model)
+                {
+                    <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 list-item mb-5">
+                        <div style="background: #17a2b829;" class="container-item">
+                            <div class="col-xs-4 col-sm-4 col-md-12 col-lg-12 item">
+                                <a href="@Url.Action("ChiTietNguoiHien","NguoiHien", new { id = item.MaHT})">
+                                    <div class="item-title mb-4">
+                                        <div style="font-size:22px;font-style:inherit; color:black" class="title fs-2 text-justify">Họ tên :@item.Hotennguoihien</div>
+                                        <div style="font-size: 22px; font-style: inherit; color: black" class="title fs-2 text-justify" color:black;>Bệnh viện: @item.Benhvien.tenbenhvien</div>
+                                        <small style="font-size:17px;font-style:inherit;">Ngày đăng:@item.Ngaytaobaiviet</small>
+                                    </div>
+                                    <div class="item-nav-title fs-5 w-100 d-flex  flex-row align-items-end">
+                                        <div class="img-title w-100">
+                                            <img style="width:620;height:420;" class="w-100" src="@item.Benhvien.Anh">
+                                            <img />
+                                        </div>
+                                        @*<div class="nav-title mt-2 text-center ml-1">
+                                                <p style="font-size:10px">SĐT: @Html.DisplayFor(modelItem => item.Taikhoan.Sdt)</p>
+                                            </div>*@
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!--ket thuc hien thi danh sach san pham-->
+        </div>
+    </div>
+
+    <footer>
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6">
+                <a href="">
+                    <img src="" />
+                    <p></p>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
+<style>
+    .w-100 {
+        width: 627px;
+        height: 420px;
+    }
+    .pagination {
+        display: flex;
+        /* display: inline-block; */
+    }
+</style>

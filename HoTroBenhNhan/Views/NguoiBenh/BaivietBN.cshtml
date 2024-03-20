@@ -1,0 +1,90 @@
+﻿
+@model HoTroBenhNhan.Data.Thongtinbenhnhan
+@{
+    ViewBag.Title = "BaivietBN";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="~/Content/css/detailInforPatiens.css" rel="stylesheet" />
+    <title>Document</title>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=637089d6074d6c00198224a2&product=inline-share-buttons&source=platform" async="async"></script>
+</head>
+
+<body>
+
+    <div id="wrap">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-1">
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 mt-5">
+                    <div class="row">
+                        <div class="avartarpatient col-xs-6 col-sm-4 col-md-4 col-lg-8">
+                            <div class="img">
+                                <img src="@Model.Hinhanh" alt="">
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item fs-6 text-center"><p class="nguoihien">Họ tên:</p> @Model.HotenBN</li>
+                                <li class="list-group-item fs-6 text-center"><p class="nguoihien" >Quê quán:</p> @Model.Diachicuthe , @Model.XaPhuong1.tenXaPhuong,@Model.QuanHuyen1.tenQuanHuyen,@Model.TinhThanhPho1.tenTinhThanhPho</li>
+                                <li class="list-group-item fs-6 text-center"><p class="nguoihien" >Bệnh tình liên quan đến :</p>@Model.Trinhtangbenh.Tenbenh</li>
+                                <li class="list-group-item fs-6 text-center"><p class="nguoihien" >Địa chỉ facebook:</p><a href="@Model.Linkfb"> @Model.Linkfb</a></li>
+                                <li class="list-group-item fs-6 text-center"><p class="nguoihien" >Địa chỉ Zalo:</p><a href="@Model.Linkzalo"> @Model.Linkzalo</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-7">
+                    <div class="title">
+                        <h2 class="fs-2 text-center fw-bold text-dark">THÔNG TIN BỆNH NHÂN</h2>
+                    </div>
+                    <div class="content col-xs-6 col-sm-4 col-md-4 col-lg-12">
+                        <div class="content-img">
+                            <img src="@Model.Hinhanh"
+                                 alt="">
+                            <div class="content-describe-short">
+                                <p class="fs-6 fst-italic text-center">Ảnh minh hoạ</p>
+                            </div>
+                        </div>
+                        <div class="content-describe text-dark mb-5 fs-5">
+                            @Model.Noidungdaydu
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-1">
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+      
+    
+    <div  class="sharethis-inline-share-buttons"> </div>
+    
+</body>
+
+</html>
+<style>
+    .fs-2 {
+        margin-top: 100px;
+        margin-bottom: 50px;
+        font-size: 2rem !important;
+    }
+
+    .sharethis-inline-share-buttons {
+        margin-bottom: 100px;
+    }
+</style>

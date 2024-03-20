@@ -1,0 +1,73 @@
+﻿@model IEnumerable<HoTroBenhNhan.Data.baiViet>
+
+@{
+    ViewBag.Title = "danhSachBaiViet";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<button style="margin-left:1450px;margin-top:40px; " class="au-btn au-btn-icon au-btn--blue">
+    <i style="color:black; " class="zmdi zmdi-plus">
+        @Html.ActionLink("Tạo Tin mới ", "Taobaiviet")
+    </i>
+</button>
+<body>
+    <table class="table container w-85" style="margin-left:300px">
+        <thead class="thead-dark">
+   
+        <tr>
+            <th scope="col">Tên loại</th>
+            <th scope="col">Tên bài viết</th>
+            <th scope="col">Ngày tạo</th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col">Mô tả ngắn</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoaiBlog.TenLoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenBaiViet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ngayTao)
+                    </td>
+                    <td>
+                        <img src="@item.hinhAnhBaiViet" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.moTaNgan)
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-danger pl-3 pr-3">
+                            @Html.ActionLink("Xoá", "Delete", new { id = item.idbaiViet })
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning pl-3 pr-3">
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.idbaiViet })
+                        </button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+</body>
+</html>
+
+<style>
+    a{
+        color:black;
+    }
+</style>

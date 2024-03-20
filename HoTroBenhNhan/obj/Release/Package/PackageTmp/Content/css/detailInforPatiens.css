@@ -1,0 +1,29 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+#wrap .container .avartarpatient .img {
+    width: 100%;
+}
+
+    #wrap .container .avartarpatient .img img {
+        width: 100%;
+    }
+
+#wrap .container .content .content-img {
+    width: 100%;
+}
+
+    #wrap .container .content .content-img img {
+        width: 100%;
+    }
+
+#wrap .container .content .content-describe {
+    text-align: justify;
+}

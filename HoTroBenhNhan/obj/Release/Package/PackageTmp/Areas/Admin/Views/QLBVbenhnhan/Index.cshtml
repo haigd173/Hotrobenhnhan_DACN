@@ -1,0 +1,146 @@
+﻿@model IEnumerable<HoTroBenhNhan.Data.Thongtinbenhnhan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+<h2>Danh Sách Bài Viết </h2>
+<button style="margin-left:1700px; " class="au-btn au-btn-icon au-btn--blue">
+        <i  style="color:black; " class="zmdi zmdi-plus">
+            @Html.ActionLink("Tạo Tin mới ", "Create")
+        </i>
+    </button>
+<table class="table">
+    <tr>
+        <th>
+            <a>Họ tên bệnh nhân</a>
+        </th>
+        <th>
+          <a>Ảnh bệnh nhân </a>
+        </th>
+
+        <th>
+           <a>Địa chỉ cụ thể</a>
+        </th>
+        <th>
+            <a>Ngày tạo bài viết</a>
+        </th>
+        <th>
+            <a>Trình trạng bệnh</a>
+        </th>
+        <th>
+            <a>Tỉnh Thành phố</a>
+        </th>
+        <th>
+           <a>Quận huyện</a>
+        </th>
+        <th>
+            <a>Xã phường</a>
+        </th>
+        <th>
+            <a> Tài khoản đăng bài</a>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.HotenBN)
+    </td>
+    <td>
+        <img style="width: 300px; height: 180px;" src="@item.Hinhanh" />
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Diachicuthe)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ngaytao)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Trinhtangbenh.Tenbenh)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TinhThanhPho1.tenTinhThanhPho)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.QuanHuyen1.tenQuanHuyen)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.XaPhuong1.tenXaPhuong)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Taikhoan.TenDN)
+    </td>
+    <td>
+        <div class="account-wrap">
+            <div class="account-item clearfix js-item-menu">
+
+                <div class="content">
+                    <a class="js-acc-btn" href="#">Thao tác với bài viết</a>
+                </div>
+                <div class="account-dropdown js-dropdown">
+
+                    <div class="account-dropdown__body">
+                        <div class="account-dropdown__item">
+                            <a href="#">
+                                @Html.ActionLink("ẩn bài viết", "Edit", new { id = item.Mabaiviet }) |
+                            </a>
+                        </div>
+                        <div class="account-dropdown__item">
+                            <a href="#">
+                                @Html.ActionLink("Chi tiết bài viết", "Details", new { id = item.Mabaiviet }) |
+                            </a>
+                        </div>
+                        <div class="account-dropdown__item">
+                            <a href="#">
+                                @Html.ActionLink("Xóa bài viết", "Delete", new { id = item.Mabaiviet })
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+       
+        
+    </td>
+</tr>
+    }
+
+</table>
+<style>
+    .clear {
+        clear: both;
+    }
+
+    .create {
+        margin-left: 100px;
+        display: inline-block;
+        padding: 12px;
+        background-color: violet;
+    }
+
+    .table {
+        float: right;
+        width: 82%;
+        background-color: var(--white);
+        margin-left:10%;
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        color: crimson;
+    }
+
+    a {
+        color: var(--dark);
+    }
+</style>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b6c9a9aa4e7d4d8eb76ddb6ea1a8dc9e" Name="Diagram1" ZoomLevel="89">
+        <EntityTypeShape EntityType="DulieuhientangModel.baiViet" Width="1.5" PointX="26.875" PointY="2.375" />
+        <EntityTypeShape EntityType="DulieuhientangModel.LoaiBlog" Width="1.5" PointX="26.875" PointY="5.875" />
+        <EntityTypeShape EntityType="DulieuhientangModel.sysdiagrams" Width="1.5" PointX="23.5" PointY="3.375" />
+        <AssociationConnector Association="DulieuhientangModel.FK__baiViet__idLoai__4865BE2A" />
+        <EntityTypeShape EntityType="DulieuhientangModel.Benhvien" Width="1.5" PointX="18" PointY="3.125" />
+        <EntityTypeShape EntityType="DulieuhientangModel.Khieunai" Width="1.5" PointX="17.25" PointY="17.25" />
+        <EntityTypeShape EntityType="DulieuhientangModel.QuanHuyen" Width="1.5" PointX="15" PointY="12.125" />
+        <EntityTypeShape EntityType="DulieuhientangModel.Taikhoan" Width="1.5" PointX="15" PointY="7.5" />
+        <EntityTypeShape EntityType="DulieuhientangModel.Thongtinbenhnhan" Width="1.5" PointX="17.25" PointY="6.875" />
+        <EntityTypeShape EntityType="DulieuhientangModel.Thongtinhientang" Width="1.5" PointX="20.25" PointY="7.75" />
+        <EntityTypeShape EntityType="DulieuhientangModel.TinhThanhPho" Width="1.5" PointX="15.75" PointY="20.375" />
+        <EntityTypeShape EntityType="DulieuhientangModel.Trinhtangbenh" Width="1.5" PointX="19.125" PointY="13.5" />
+        <EntityTypeShape EntityType="DulieuhientangModel.XaPhuong" Width="1.5" PointX="15" PointY="4.5" />
+        <AssociationConnector Association="DulieuhientangModel.FK__Thongtinhi__maBV__0E04126B" />
+        <AssociationConnector Association="DulieuhientangModel.FK__Khieunai__Matk__589C25F3" />
+        <AssociationConnector Association="DulieuhientangModel.FK__thongtinb__quanh__31B762FC" />
+        <AssociationConnector Association="DulieuhientangModel.FK_QuanHuyen_TinhThanhPho" />
+        <AssociationConnector Association="DulieuhientangModel.FK_XaPhuong_QuanHuyen" />
+        <AssociationConnector Association="DulieuhientangModel.FK__thongtinbe__matk__2FCF1A8A" />
+        <AssociationConnector Association="DulieuhientangModel.FK__Thongtinhi__Matk__0EF836A4" />
+        <AssociationConnector Association="DulieuhientangModel.FK__thongtinb__maben__2EDAF651" />
+        <AssociationConnector Association="DulieuhientangModel.FK__thongtinb__tinht__30C33EC3" />
+        <AssociationConnector Association="DulieuhientangModel.FK__thongtinb__XaPhu__32AB8735" />
+        <AssociationConnector Association="DulieuhientangModel.FK__Thongtinh__Maben__0FEC5ADD" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

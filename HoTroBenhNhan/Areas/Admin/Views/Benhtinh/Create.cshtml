@@ -1,0 +1,53 @@
+﻿@model HoTroBenhNhan.Data.Trinhtangbenh
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4 style="margin-top:50px;color:orangered;margin-left:100px";>Thêm mới bệnh tình</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <a class = "control-label col-md-2">Tên Bệnh</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tenbenh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tenbenh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo Mới " class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div type="submit" class="back" >
+    <button>
+        @Html.ActionLink("Trở lại", "Index")
+    </button>
+</div>
+
+
+
+<style>
+    .form-horizontal{
+        margin-left:300px;
+    }
+    .back {
+        font-size:24px;
+        margin-left: 1800px;
+        margin-top: 500px;
+        background:center;
+    }
+</style>
+

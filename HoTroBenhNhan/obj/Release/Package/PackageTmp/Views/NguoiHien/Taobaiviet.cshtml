@@ -1,0 +1,109 @@
+﻿@model HoTroBenhNhan.Data.Thongtinhientang
+
+@{
+    ViewBag.Title = "Taobaiviet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div style="margin-left:300px;  font-size: 17px" class="form-horizontal">
+    <h4 style="font-size:30px; color:red; margin-left:400px;;margin-top:50px; margin-bottom:50px;" >Vui lòng nhập thông tin chính xác </h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.MaHT, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaHT, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaHT, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.maBV, "maBV", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("maBV", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.maBV, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+    <div class="form-group">
+        <a>Chọn bênh viện bảo quản tạng :</a>
+        <div class="col-md-10">
+            @Html.DropDownList("maBV", (SelectList)ViewBag.Listbenhvien, "-- Chọn danh mục --", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.maBV, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a>Chọn bộ phận hiến </a>
+        <div class="col-md-10">
+            @Html.DropDownList("Mabenh", (SelectList)ViewBag.Listhientang, "-- Chọn danh mục --", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Mabenh, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <a>Họ tên người hiến ( Có thể không nhập nếu người hiến không muốn tiết lộ thông tin ) </a>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Hotennguoihien, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Hotennguoihien, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a> Chia sẻ tâm sư của người hiến </a>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Noidunghientang, new { htmlAttributes = new { @class = "form-control1" } })
+            @Html.ValidationMessageFor(model => model.Noidunghientang, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.Ngaytaobaiviet, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Ngaytaobaiviet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Ngaytaobaiviet, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.Matk, "Matk", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Matk", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Matk, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Mabenh, "Mabenh", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Mabenh", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Mabenh, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input style="background-color:aqua;" type="submit" value="Đăng bài " class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+<style>
+    .form-control1 {
+        display: block;
+        width: 100%;
+        height: 400px;
+        padding: 0.45rem 0.85rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.37rem;
+</style>

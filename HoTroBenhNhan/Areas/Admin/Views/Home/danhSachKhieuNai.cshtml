@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HoTroBenhNhan.Data.Khieunai>
+
+@{
+    ViewBag.Title = "danhSachKhieuNai";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container-fluid w-80 mt-5" style="margin-left:350px">
+        <table class="table container w-50">
+            <tr>
+                <th>
+                    Bài viết
+                </th>
+                <th>
+                    Nội dung khiếu nại
+                </th>
+                <th>
+                    Tên đăng nhập
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LinkBaiviet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoidungKN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Taikhoan.TenDN)
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-danger pl-3 pr-3">
+                            @Html.ActionLink("Xoá", "xoaKhieuNai", new { id = item.MaKN })
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info pl-3 pr-3">
+                            @Html.ActionLink("Xem", "xemKhieuNai", new { id = item.MaKN })
+                        </button>
+                    </td>
+                </tr>
+           
+                   
+       
+            }
+
+        </table>
+    </div>
+</body>
+</html>
+
+<style>
+    a{
+        color:black
+    }
+</style>
+

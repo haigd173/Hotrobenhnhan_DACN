@@ -1,0 +1,115 @@
+﻿@model HoTroBenhNhan.Models.HomeModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="~/Content/css/homeIndex.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <header>
+            <div >
+                <img  class="chinhanh" src="~/Content/images/banner1.jpg" alt="" />
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-12">
+                    <!-- Hoạt động trung tâm -->
+                    <div class="row activity-central mb-5">
+                        <div class="title mb-2">
+                            <h6 class="fs-6 fw-bold">THÔNG TIN BỆNH NHÂN</h6>
+                        </div>
+                        <div class="row  mb-5 ">
+                            @foreach (var item in Model.listThongtinbenhnhan.Where(n => n.Mabaiviet >=14).Take(8))
+                            {
+                                <div class="item col-xs-1 col-sm-6 col-md-6 col-lg-3">
+                                    <a href="">
+                                        <div class="img">
+                                            <a href="@Url.Action("BaivietBN","NguoiBenh",new {id = item.Mabaiviet })" class="img-wrap">
+                                                <img src="@item.Hinhanh" alt="" />
+
+                                        </div>
+                                        <p class="mb-0 text-muted"><a class="BN1">Bệnh Nhân : </a> @item.HotenBN</p>
+                                        <p class="mb-0 text-muted"><a class="BN1">Ngày đăng : </a> @item.Ngaytao</p>
+                                    </a>
+                                </div>
+                            }
+                            
+                        </div>
+                        <!-- Tin tức ngành y -->
+                        <div class="row activity-central mb-5 mt-2">
+                            <div class="title">
+                                <h6 class="fs-6 fw-bold">THÔNG TIN HIẾN TẠNG</h6>
+                            </div>
+                            <div class="row mt-2">
+                                @foreach (var item in Model.listThongtinhientang.Where(n => n.MaHT >= 1).Take(8))
+                                {
+                                    <div class="item col-xs-1 col-sm-6 col-md-6 col-lg-3">
+                                        <a href="">
+                                            <div class="img">
+                                                <a href="@Url.Action("ChiTietNguoiHien","NguoiHien",new {id = item.MaHT })" class="img-wrap">
+                                                    <img src="@item.Benhvien.Anh" alt="" />
+
+                                            </div>
+                                            <p class="mb-0 text-muted"><a class="BN1">Địa chỉ bệnh viện : </a> @item.Benhvien.DiaChi</p>
+                                            <p class="mb-0 text-muted"><a class="BN1">Ngày đăng : </a> @item.Ngaytaobaiviet</p>
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+            </footer>
+        </div>
+</body>
+
+</html>
+<style>
+
+    .chinhanh {
+        width: 80%;
+        height: 400px;
+        margin-bottom: 100px;
+        margin-left: 11%;
+    }
+    .img-wrap img {
+        max-width: 100%;
+        height: 200px;
+        margin-top: 30px;
+    }
+    .bg-secondary {
+        --bs-bg-opacity: 1;
+        background-color: #12225b !important;
+    }
+    .BN1 {
+        font-style: unset;
+        color: #12225b;
+        font-size: unset;
+    }
+    .text-muted {
+        --bs-text-opacity: 1;
+        color: #12225b !important;
+    }
+    .fs-6 {
+        font-size: 25px !important;
+    }
+</style>

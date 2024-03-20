@@ -1,0 +1,123 @@
+﻿@model IEnumerable<HoTroBenhNhan.Data.Taikhoan>
+
+@{
+    ViewBag.Title = "Các tài khoản ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+<h2>Danh sách tài khoản </h2>
+
+
+@*<button style="margin-left:1700px; " class="au-btn au-btn-icon au-btn--blue">
+    <i  style="color:black; " class="zmdi zmdi-plus">
+        @Html.ActionLink("Tạo Tin mới ", "Create")
+    </i>
+</button>*@
+
+<table class="table">
+
+    <tr>
+        <th>
+            <a>Tài Khoản</a>
+        </th>
+        <th>
+            <a>Quyền quản trị viên </a>
+        </th>
+        <th>
+            <a>Quyền đăng bài </a>
+        </th>
+        <th>
+            <a>Căn cước mặt trước </a>
+        </th>
+        <th>
+            <a>Căn cước mặt sau </a>
+        </th>
+        <th>
+            <a>Thao tác </a>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenDN)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Quyenadmin)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Quyendangbai)
+    </td>
+
+    <td>
+        <img style="width: 300px; height: 180px;" src="@item.Cccdtruoc" />
+    </td>
+    <td>
+        <img style="width: 300px; height: 180px;" src="@item.Cccdsau" />
+    </td>
+    <td>
+        <div class="account-wrap">
+            <div class="account-item clearfix js-item-menu">
+
+                <div class="content">
+                    <a class="js-acc-btn" href="#">Thao tác với tài khoản</a>
+                </div>
+                <div class="account-dropdown js-dropdown">
+
+                    <div class="account-dropdown__body">
+                        <div class="account-dropdown__item">
+                            <a href="#">
+                                @Html.ActionLink("Cấp quyền tạo bài viết", "Edit", new { id = item.Matk })
+                            </a>
+                        </div>
+                        <div class="account-dropdown__item">
+                            <a href="#">
+                                @Html.ActionLink("Quyền admin", "ChinhQuyen", new { id = item.Matk })
+                            </a>
+                        </div>
+                        <div class="account-dropdown__item">
+                            <a href="#">
+                                @Html.ActionLink("Xóa tài khoản", "Delete", new { id = item.Matk })
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>
+    }
+
+</table>
+
+<style>
+    .clear {
+        clear: both;
+    }
+
+    .create {
+        margin-left: 100px;
+        display: inline-block;
+        padding: 12px;
+        background-color: violet;
+    }
+
+    .table {
+        float: right;
+        width: 82%;
+        background-color: var(--white);
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        color: crimson;
+    }
+    a {
+        color: var(--dark);
+    }
+</style>

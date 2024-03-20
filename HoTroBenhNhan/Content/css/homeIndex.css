@@ -1,0 +1,103 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+span {
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Start Slider */
+
+#wrap {
+    width: 100%;
+}
+
+    #wrap .container .slider {
+        width: 100%;
+    }
+
+
+/* End Slider */
+/* Start Body */
+/* Start tin tức và sự kiện */
+.container .row .title {
+    color: #19547b;
+    border-bottom: 1px solid #19547b;
+}
+
+.container .list_item {
+}
+
+    .container .list_item .item {
+    }
+
+        .container .list_item .item .item_title span {
+            font-size: 12px;
+        }
+
+        .container .list_item .item .img {
+        }
+
+            .container .list_item .item .img img {
+                width: 100%;
+            }
+
+.list-group-flush .list-group-item {
+}
+
+    .list-group-flush .list-group-item .img > img {
+        width: 20%;
+    }
+/* End tin tức và sự kiện */
+/* Start Hoạt động trung tâm */
+.activity-central .title {
+    color: #19547b;
+    border-bottom: 1px solid #19547b;
+}
+
+.activity-central .item a {
+    text-decoration: none;
+}
+
+.activity-central .item .img {
+    width: 100%;
+}
+
+    .activity-central .item .img img {
+        width: 100%;
+    }
+/* End Hoạt động trung tâm */
+
+/* Column Right */
+.col-right .img-gif {
+    border: 1px solid #000;
+}
+
+    .col-right .img-gif img {
+        width: 100%;
+    }
+
+.col-right .img img {
+    width: 100%;
+}
+
+/* button đặt lịch */
+
+.center .btn {
+    background-color: aqua;
+    color: #000;
+}
+
+    .center .btn:hover {
+        background-color: #000;
+        color: aliceblue;
+    }
+
+
+/* End Body */

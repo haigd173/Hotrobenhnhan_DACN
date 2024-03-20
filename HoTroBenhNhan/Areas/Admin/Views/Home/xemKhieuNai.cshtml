@@ -1,0 +1,35 @@
+﻿@model HoTroBenhNhan.Data.Khieunai
+
+@{
+    ViewBag.Title = "xemKhieuNai";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container-fluid w-50 mt-5" style="margin-left:300px">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Đường dẫn bài viết</th>
+                    <th scope="col">Tên tài khoản</th>
+                    <th scope="col">Nội dung khiếu nại</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">@Html.DisplayFor(model => model.LinkBaiviet)</th>
+                    <td>@Html.DisplayFor(model => model.Taikhoan.TenDN)</td>
+                    <td> @Html.DisplayFor(model => model.NoidungKN)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

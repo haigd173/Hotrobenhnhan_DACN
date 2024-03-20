@@ -1,0 +1,45 @@
+﻿@model HoTroBenhNhan.Data.Taikhoan
+
+@{
+    ViewBag.Title = "xoaTaiKhoan";
+    Layout = "~/Areas/Admin/Views/Shared/_Layuot.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container-fluid mt-5 w-90" style="margin-left:300px;">
+        <table class="table w-50">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-3">Tên tài khoản</th>
+                    <th scope="col" class="col-3">Ảnh đại diện</th>
+                    <th scope="col">Ảnh căn cước</th>
+                    <th scope="col">SĐT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">@Html.DisplayFor(model => model.TenDN)</th>
+                    <td><img src="@Html.DisplayFor(model => model.Anhdaidien)" /></td>
+                    <td><img src=" @Html.DisplayFor(model => model.Cccdtruoc)" /></td>
+                    <td>@Html.DisplayFor(model => model.Sdt)</td>
+                </tr>
+            </tbody>
+        </table>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value="Xoá" class="btn btn-default" />
+            </div>
+        }
+    </div>
+
+</body>
+</html>
+
